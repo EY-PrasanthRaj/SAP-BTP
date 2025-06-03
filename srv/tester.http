@@ -93,3 +93,5 @@ http://localhost:4004/odata/v2/CatalogService/getLargestOrder
 
 ###Get the less order
 http://localhost:33253/odata/v2/CatalogService/getLessOrder
+
+### VS Changes
