@@ -75,8 +75,8 @@ context master {
         loginName     : String(12);
         Currency      : Currency;
         salaryAmount  : common.AmountT;
-        accountNumber : String(16);
-        bankId        : String(8);
+        accountNumber : String(16cd);
+        bankId        : String(40);
         bankName      : String(64);
     }
 }
