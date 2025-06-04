@@ -4,7 +4,18 @@ using {
 } from '../db/datamodel';
 
 service CatalogService @(path: 'catalogService') {
-    entity EmployeeSet     as projection on master.employees;
+    entity EmployeeSet @(restrict: [
+        {
+            grant: ['READ'],
+            to   : 'Viewer',
+            where: 'bankName = $user.BankName'
+        },
+        {
+            grant: ['WRITE'],
+            to   : 'Admin'
+        }
+    ])                     as projection on master.employees;
+
     entity AddressSet      as projection on master.address;
     function getOrderDefault() returns POs;
 
@@ -61,7 +72,7 @@ service CatalogService @(path: 'catalogService') {
         }
 
         actions {
-            action boost() returns POs;
+            action boost()          returns POs;
             action setOrderStatus() returns POs;
         };
 
