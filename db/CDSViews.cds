@@ -72,6 +72,7 @@ context CDSViews {
         select from master.product
         // Mixin is a keyword to define lose coupling
         //which will never load items data for product rather load on demand
+
         mixin {
             //View on view
             PO_ORDER : Association[ * ] to ItemView
